@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+#root {
+  display: flex;
+  height: 100vh;
+  padding-right: 0 !important;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #39144683;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f136;
+}
+
+.font-blanka {
+  font-family: "Blanka", sans-serif;
+}
+
+.font-averox {
+  font-family: "Averox", sans-serif;
+}
+
+.color-accent {
+  color: #00ffa3;
+}
+
+.ps-active {
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity)) !important;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 80vh;
+  z-index: 1;
+}
+
+.card {
+  -webkit-box-shadow: 0px 4px 10px 0px #0000000d;
+  box-shadow: 0px 4px 10px 0px #0000000d;
+  border: 1px solid #e7e7e7;
+  background-color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  gap: 8px;
+}
+
+.card--square {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card--square img {
+  position: unset !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+@media screen and (min-width: 768px) {
+  .card--square {
+    width: 250px;
+    height: 250px;
+  }
+
+  .card--square img {
+    height: 80px !important;
+  }
+}
+
+.card--square span {
+  width: 80%;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.card--square::before,
+.card--square::after {
+  content: "";
+  height: 88px;
+  width: 88px;
+  position: absolute;
+  border-radius: 100%;
+  z-index: 0;
+}
+
+.card--square-blue::before,
+.card--square-blue::after {
+  background-color: #0714c49f;
+}
+
+.card--square-red::before,
+.card--square-red::after {
+  background-color: #c4140780;
+}
+
+@media screen and (min-width: 768px) {
+  .card--square::before,
+  .card--square::after {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+.card--square::before {
+  left: -44px;
+  bottom: -44px;
+}
+
+@media screen and (min-width: 768px) {
+  .card--square::before {
+    left: -75px;
+    bottom: -75px;
+  }
+}
+
+.card--square::after {
+  right: -44px;
+  top: -44px;
+}
+
+@media screen and (min-width: 768px) {
+  .card--square::after {
+    right: -75px;
+    top: -75px;
+  }
+}
+
+.card--square-right::before {
+  left: -44px;
+  top: -44px;
+  bottom: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .card--square-right::before {
+    left: -75px;
+    top: -75px;
+  }
+}
+
+.card--square-right::after {
+  right: -44px;
+  bottom: -44px;
+  top: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .card--square-right::after {
+    right: -75px;
+    bottom: -75px;
+  }
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 80vh;
+  z-index: 1;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.cell {
+  min-width: 56px;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #391446;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
