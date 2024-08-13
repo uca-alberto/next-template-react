@@ -5,6 +5,7 @@ export const TableHeaderComponent = ({
   voidEdit,
   voidDelete,
   voidView,
+  voidEditItem,
 }: IPropsTableHeader) => {
   const columnCount =
     columnsState.length +
@@ -21,6 +22,7 @@ export const TableHeaderComponent = ({
           </CellComponent>
         ))}
       {voidEdit && <CellComponent width={width}>Editar</CellComponent>}
+      {voidEditItem && <CellComponent width={width}>Editar</CellComponent>}
       {voidDelete && <CellComponent width={width}>Eliminar</CellComponent>}
       {voidView && <CellComponent width={width}>Ver</CellComponent>}
     </tr>

@@ -14,6 +14,7 @@ export const InputSelectStandard = (props: InputSelectStandardProps) => {
     options,
     onChange,
     setInfo,
+    color = "#4f4f4f",
   } = props;
   if (name == "segmentId" && value == "2") {
     setInfo?.(name);
@@ -22,11 +23,15 @@ export const InputSelectStandard = (props: InputSelectStandardProps) => {
   if (name == "bannerSectionId" && value == "1") {
     setInfo?.(name);
   }
+  const style = {
+    color: color,
+  };
+  var inputColor = `text-[#391446] font-medium text-md`;
 
   return (
     <div className="w-full mt-1 mb-2">
       {title && (
-        <label className="text-[#391446] font-medium text-md " htmlFor="name">
+        <label style={style} className={inputColor} htmlFor="name">
           {title}
         </label>
       )}

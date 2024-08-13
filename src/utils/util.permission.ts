@@ -2,35 +2,62 @@ import { menuConfig } from "../config/config.menu";
 import { IMenuItem, IModulePermission } from "./util.interface";
 import { orderMenu } from "./util.main";
 
+const checkPermissionAction = (module: IModulePermission, mainSegment: string, action: string): boolean => {
+
+  if (module.path === `/${mainSegment}`) {
+
+    for (const act of module.action) {
+      if (act.action === "WRITE" && action === "WRITE") {
+        return true;
+      }
+      if (act.action === "DELETE" && action === "DELETE") {
+        return true;
+      }
+      if (act.action === "CREATE" && action === "CREATE") {
+        return true;
+      }
+    }
+  }
+  return true;
+}
+
+const checkPermissionPath = (module: IModulePermission, mainSegment: string, secondSegment: string): boolean => {
+
+  if (module.path === `/${mainSegment}`) {
+    for (const action of module.action) {
+      if (!secondSegment && action.action === "READ") {
+        return true;
+      }
+      if (secondSegment && secondSegment == "create" && action.action === "CREATE") {
+        return true;
+      }
+      if (secondSegment && secondSegment == "edit" && action.action === "WRITE") {
+        return true;
+      }
+    }
+  }
+  return true;
+}
+
 export function hasWriteOrCreatePermission(
   array: IModulePermission[],
-  path: string
+  path: string,
+  action: string = ""
 ): boolean {
   if (path === "/") return true;
   const splitPath = path?.split("/") ?? [];
   const mainSegment = splitPath[1];
   const secondSegment = splitPath[2] ?? "";
 
-  function checkPermission(module: IModulePermission): boolean {
-    if (module.path === `/${mainSegment}`) {
-      for (const action of module.action) {
-        if (!secondSegment && action.action === "READ") {
-          return true;
-        }
-        if (secondSegment && secondSegment == "create" && action.action === "CREATE") {
-          return true;
-        }
-        if (secondSegment && secondSegment == "edit" && action.action === "WRITE") {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
+  const checkPermission = (module: IModulePermission, mainSegment: string, secondSegment: string, action: string) =>
+    action ? checkPermissionAction(module, mainSegment, action) :
+      checkPermissionPath(module, mainSegment, secondSegment)
+
+
   for (const module of array) {
     const subModuleArray = module?.subModule ?? [];
     for (const subModule of subModuleArray) {
-      const hasPermission = checkPermission(subModule);
+      const hasPermission = checkPermission(subModule, mainSegment, secondSegment, action);
       if (hasPermission) {
         return true;
       }

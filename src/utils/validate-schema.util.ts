@@ -1,3 +1,4 @@
+import { format, parseISO } from "date-fns";
 import { ErrorMessages } from "../enum/error-messages.enum";
 
 interface ValidationResult {
@@ -15,7 +16,12 @@ const validateSchemaDate = (
   const dateFinal = finalDate ? new Date(finalDate) : null;
   const currentDate = new Date();
 
-  if (!initialDate && finalDate && finalDate.trim() !== "" && path === "initialDate") {
+  if (
+    !initialDate &&
+    finalDate &&
+    finalDate.trim() !== "" &&
+    path === "initialDate"
+  ) {
     return {
       path: "initialDate",
       isValid: false,
@@ -23,7 +29,12 @@ const validateSchemaDate = (
     };
   }
 
-  if (!finalDate && initialDate && initialDate.trim() !== "" && path === "finalDate") {
+  if (
+    !finalDate &&
+    initialDate &&
+    initialDate.trim() !== "" &&
+    path === "finalDate"
+  ) {
     return {
       path: "finalDate",
       isValid: false,
@@ -96,4 +107,13 @@ const getFormattedDates = (): { dateNow: string; dateBefore: string } => {
   return { dateNow, dateBefore };
 };
 
-export { validateSchemaDate, formatDate, getFormattedDates };
+const getFormattedparseISO = (date: string): string => {
+  return format(parseISO(date), "MM/dd/yyyy");
+};
+
+export {
+  validateSchemaDate,
+  formatDate,
+  getFormattedDates,
+  getFormattedparseISO,
+};

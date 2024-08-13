@@ -13,7 +13,7 @@ const SubMenuComponent = ({ item, pathname }: { item: IMenuItem; pathname: strin
     <SubMenu
       label={item.title}
       defaultOpen={isOpen}
-      icon={<Icon name={item.icon} color={`#391446`} />}
+      icon={<Icon name={item.icon} color={`#ffffff`} />}
     >
       {item.children?.map((child, i) => (
         <MemoMenuItemComponent

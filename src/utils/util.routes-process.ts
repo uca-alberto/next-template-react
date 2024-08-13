@@ -9,20 +9,20 @@ const routesProcess = (menu: any[]) => {
         routesProcessor.push(
           {
             ...item,
-            name: "create_user",
             title: `Crear ${item.title}`,
             path: `${item.path}create`,
           },
           {
             ...item,
-            name: "edit_user",
             title: `Editar ${item.title}`,
             path: `${item.path}edit/:id`,
-          }
+          },
+
         );
         return;
       }
       routesProcessor.push(item);
+
       return;
     });
 

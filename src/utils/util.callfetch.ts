@@ -86,7 +86,11 @@ const callfetch = async ({ url, method, options }: ICallFetch) => {
   try {
     return fetch(url, { signal: Timeout(50).signal, ...headers })
       .then(async (response) => {
-        if (response.status && response.status >= 200 && response.status <= 299) {
+        if (
+          response.status &&
+          response.status >= 200 &&
+          response.status <= 299
+        ) {
           return {
             status: response.status,
             response: await response.json(),
@@ -131,6 +135,10 @@ const callApis = async (props: ICallApis) => {
       if (params.id) {
         url = `${url}/${params.id}`;
         delete params.id;
+      }
+      if (params.code) {
+        url = `${url}/${params.code}`;
+        delete params.code;
       }
 
       if (params.paramId) {

@@ -1,7 +1,9 @@
 import { IPropsChildrenLayouts } from "../../utils/util.interface";
 
 const DivJustifyItemsCenter = ({ children }: IPropsChildrenLayouts) => (
-  <div className="w-full h-full flex justify-center items-center">{children}</div>
+  <div className="w-full h-full flex justify-center items-center gap-x-3">
+    {children}
+  </div>
 );
 
 const DivJustifyEndItemsCenter = ({ children }: IPropsChildrenLayouts) => (
@@ -9,11 +11,15 @@ const DivJustifyEndItemsCenter = ({ children }: IPropsChildrenLayouts) => (
 );
 
 const DivJustifyStartItemsCenter = ({ children }: IPropsChildrenLayouts) => (
-  <div className="w-full h-full flex justify-start items-center">{children}</div>
+  <div className="w-full h-full flex justify-start items-center">
+    {children}
+  </div>
 );
 
 const DivJustifyBetweenItemsCenter = ({ children }: IPropsChildrenLayouts) => (
-  <div className="w-full h-full flex justify-between items-center">{children}</div>
+  <div className="w-full h-full flex justify-between items-center">
+    {children}
+  </div>
 );
 
 const DivBgWhiteRounded = ({ children }: IPropsChildrenLayouts) => (

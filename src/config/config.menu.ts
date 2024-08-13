@@ -1,9 +1,26 @@
+import LayoutBenefitRequest from "../layouts/benefit-request/layout.benefit.request";
+import LayouotBenefitRequestForm from "../layouts/benefit-request/layout.benefit.request.form";
+import LayoutBenefit from "../layouts/benefit/layout.benefit";
+import LayouotBenefitForm from "../layouts/benefit/layout.benefit.form";
+import LayoutBirthdayProgramForm from "../layouts/birthday-program/layout.birthday.program.form";
+import LayoutCatalog from "../layouts/catalog/layout.catalog";
+import LayouotCatalogForm from "../layouts/catalog/layout.catalog.form";
+import LayoutCategory from "../layouts/category/layout.category";
+import LayouotCategoryForm from "../layouts/category/layout.category.form";
 import HomePage from "../layouts/home/layout.home";
 import LayoutMenu from "../layouts/menu/layout.menu";
+import LayoutReferralForm from "../layouts/referral/layout-referral-form";
+import LayoutReferralList from "../layouts/referral/layout-referral-list";
+import LayouotReferralRulerForm from "../layouts/referral/layout-referral-ruler-form";
+import LayoutReferralRuler from "../layouts/referral/layout-referral-ruler-list";
+import LayoutReferralView from "../layouts/referral/layout-referral-view";
+import LayoutReferralManagement from "../layouts/referral/layout.referral-management";
 import LayoutRole from "../layouts/role/layout.role";
 import LayouotRoleForm from "../layouts/role/layout.role-form";
 import LayoutSection from "../layouts/section/layout.section";
 import LayoutSectionForm from "../layouts/section/layout.section-form";
+import LayoutUpgradeProgram from "../layouts/upgrade-program/layout.upgrade.program";
+import LayoutUpgradeProgramForm from "../layouts/upgrade-program/layout.upgrade.program.form";
 import LayoutUser from "../layouts/user/layout.user";
 import LayouotUserForm from "../layouts/user/layout.user-form";
 
@@ -21,69 +38,75 @@ export const menuConfig = [
     name: "module_programs",
     path: "/programs",
     title: "Módulo Programas",
-    icon: "RiDashboardLine",
+    icon: "RiStarLine",
   },
   {
     id: 3,
     name: "referred",
     title: "Referidos",
-    path: "/#",
+    path: "/referral",
     icon: "RiDashboardLine",
     parentId: 2,
+    component: LayoutReferralManagement,
   },
   {
     id: 4,
     name: "upgrade",
     title: "Upgrade",
-    path: "/#",
+    path: "/upgrade",
     icon: "RiDashboardLine",
     parentId: 2,
+    component: LayoutUpgradeProgram,
   },
   {
     id: 5,
     name: "birthday",
     title: "Cumpleaños",
-    path: "/#",
+    path: "/birthday",
     icon: "RiDashboardLine",
     parentId: 2,
+    component: LayoutBirthdayProgramForm,
   },
   {
     id: 6,
     name: "module_categories",
     path: "/#",
-    title: "Módulo Categorias",
+    title: "Módulo Categorías",
     icon: "RiDashboardLine",
   },
   {
     id: 7,
     name: "categories",
-    path: "/#",
-    title: "Categorias",
+    path: "/category",
+    title: "Categorías",
     icon: "RiDashboardLine",
     parentId: 6,
+    component: LayoutCategory,
   },
   {
     id: 8,
     name: "module_benefits",
-    path: "/#",
+    path: "/",
     title: "Módulo Beneficios",
     icon: "RiDashboardLine",
   },
   {
     id: 9,
     name: "benefits",
-    path: "/#",
+    path: "/benefit",
     title: "Beneficios",
     icon: "RiDashboardLine",
     parentId: 8,
+    component: LayoutBenefit,
   },
   {
     id: 10,
     name: "redeem",
-    path: "/#",
+    path: "/benefitrequest",
     title: "Canjes",
     icon: "RiDashboardLine",
     parentId: 8,
+    component: LayoutBenefitRequest,
   },
   {
     id: 11,
@@ -179,6 +202,109 @@ export const menuConfig = [
     icon: "RiDashboardLine",
     component: LayoutMenu,
     parentId: 19,
-  }
-  
+  },
+  {
+    id: 22,
+    name: "create_edit_benefit",
+    title: "Beneficios",
+    path: "/benefit/",
+    icon: "RiDashboardLine",
+    component: LayouotBenefitForm,
+    parentId: 8,
+    form: true,
+  },
+  {
+    id: 23,
+    name: "create_edit_benefit_request",
+    title: "Canjes",
+    path: "/benefitrequest/",
+    icon: "RiDashboardLine",
+    component: LayouotBenefitRequestForm,
+    parentId: 8,
+    form: true,
+  },
+  {
+    id: 24,
+    name: "create_edit_category",
+    title: "Categorías",
+    path: "/category/",
+    icon: "RiDashboardLine",
+    component: LayouotCategoryForm,
+    parentId: 7,
+    form: true,
+  },
+  {
+    id: 25,
+    name: "referral_form",
+    title: "Formulario de Referido",
+    path: "/referral/form",
+    component: LayoutReferralForm,
+    parentId: 3,
+    hiddenDashboard: true,
+  },
+  {
+    id: 26,
+    name: "Referral_list",
+    title: "Lista de referidos",
+    path: "/referral/list",
+    component: LayoutReferralList,
+    parentId: 3,
+    hiddenDashboard: true,
+  },
+  {
+    id: 27,
+    name: "Referral_view",
+    title: "Gestión de referidos",
+    path: "/referral/list/edit/:id",
+    component: LayoutReferralView,
+    parentId: 3,
+    hiddenDashboard: true,
+  },
+  {
+    id: 28,
+    name: "catalogo",
+    path: "/catalog",
+    title: "Catálogo",
+    icon: "RiDashboardLine",
+    parentId: 6,
+    component: LayoutCatalog,
+  },
+  {
+    id: 29,
+    name: "create_edit_catalog",
+    title: "Catálogo",
+    path: "/catalog/",
+    icon: "RiDashboardLine",
+    component: LayouotCatalogForm,
+    parentId: 7,
+    form: true,
+  },
+  {
+    id: 30,
+    name: "create_edit_catalog",
+    title: "Upgrade",
+    path: "/upgrade/",
+    icon: "RiDashboardLine",
+    component: LayoutUpgradeProgramForm,
+    parentId: 4,
+    form: true,
+  },
+  {
+    id: 31,
+    name: "Referral_ruler_view",
+    title: "Reglas de Referidos",
+    path: "/referral/ruler",
+    component: LayoutReferralRuler,
+    parentId: 3,
+    hiddenDashboard: true,
+  },
+  {
+    id: 32,
+    name: "create_edit_ruler_referral",
+    title: "Reglas de Referidos",
+    path: "/referral/ruler/",
+    component: LayouotReferralRulerForm,
+    parentId: 3,
+    form: true,
+  },
 ];

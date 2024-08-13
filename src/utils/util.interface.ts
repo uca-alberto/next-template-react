@@ -60,6 +60,11 @@ export interface IPropsChildrenLayouts {
   children?: ReactNode;
 }
 
+export interface IpropsBgLayouts {
+  children?: ReactNode;
+  color: string;
+}
+
 export interface IPropsChildrenHandleLayouts {
   loanding?: boolean;
   label?: string;
@@ -79,9 +84,13 @@ export interface IPropsLayouts {
   title: string;
   componentAdd?: ReactNode;
   handleSearch?: (sql: any) => void;
+  filter?: (value: boolean) => void;
   search?: (value: string) => void;
   onClick?: () => void;
   data?: any;
+  idFilter?: string;
+  clearFilter?: (value: boolean) => void;
+  isViewFilter?: boolean;
 }
 
 export interface IPropsTitleSection {
@@ -90,6 +99,7 @@ export interface IPropsTitleSection {
   title: string;
   icon?: any;
   onClick?: () => void;
+  color?: string;
 }
 
 export interface ButtonIconProps {
@@ -97,6 +107,7 @@ export interface ButtonIconProps {
   children?: React.ReactNode;
   onClick: () => void;
   disabled?: boolean;
+  color?: string;
 }
 
 export interface InputStandardProps {
@@ -111,9 +122,11 @@ export interface InputStandardProps {
   errorView?: boolean;
   isViewError?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeArea?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   setFetchInput?: (data: any) => void;
   listAuto?: (data: any) => void;
   data?: any[];
+  color?: string;
 }
 
 export interface InputSelectStandardProps {
@@ -130,6 +143,7 @@ export interface InputSelectStandardProps {
   isViewError?: boolean;
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   setInfo?: (data: any) => void;
+  color?: string;
 }
 
 export interface InputFileProps {
@@ -174,6 +188,7 @@ export interface IPropsTableComponent {
   voidDelete?: (id: string, name?: string) => void;
   voidEdit?: (id: number) => void;
   voidView?: (id: number) => void;
+  voidEditItem?: (data: any) => void;
 }
 
 export interface IPropsTableFooter {
@@ -206,6 +221,7 @@ export interface IPropsTableManagement {
   onDownload?: () => void;
   voidDelete?: (id: string, name?: string) => void;
   voidEdit?: (id: number) => void;
+  voidEditItem?: (data: any) => void;
   selectItem?: (id: number) => void;
   voidView?: (id: number) => void;
 }
@@ -219,6 +235,7 @@ export interface IPropsTableContent {
   voidEdit?: (id: number) => void;
   voidDelete?: (id: string, name?: string) => void;
   voidView?: (id: number) => void;
+  voidEditItem?: (data: any) => void;
 }
 
 export interface IPropsTableHeader {
@@ -226,6 +243,7 @@ export interface IPropsTableHeader {
   voidDelete?: (id: string, name?: string) => void;
   voidEdit?: (id: number) => void;
   voidView?: (id: number) => void;
+  voidEditItem?: (data: any) => void;
 }
 
 export interface IPropsModalUi {
@@ -239,7 +257,7 @@ export interface IPropsModalUiAlert {
   title: string;
   open: boolean;
   onCloseModal: any;
-  handleProcess: any;
+  handleProcess?: any;
 }
 
 export interface IMenuItem {
@@ -270,6 +288,7 @@ export interface ButtonStandardProps {
   disabled?: boolean;
   loading?: boolean;
   description?: string;
+  color?: string;
 }
 
 export interface IActionPermission {

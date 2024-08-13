@@ -10,10 +10,10 @@ const MenuItemComponent = ({ item, pathname }: { item: IMenuItem; pathname: stri
       icon={
         <Icon
           name={item.icon}
-          color={`${pathname === item.path ? "#FB963D" : "#391446"}`}
+          color={`${pathname === item.path ? "#FFFFFF" : "#FFFFFF"}`}
         />
       }
-      className={`${location.pathname === item.path && " bg-white/35 shadow-md "}`}
+      className={`${location.pathname === item.path && "bg-[#ED7004] shadow-md "}`}
     >
       {item.title}
     </MenuItem>

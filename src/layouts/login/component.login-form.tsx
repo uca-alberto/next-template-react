@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { InputStandard } from "../../components/common/input/input-standard";
 import { useAuth } from "../../contexts/authProvider";
 
-import logo from "../../assets/logoheader.png";
 
 export const LoginForm = () => {
   const { loginAction } = useAuth();
@@ -44,16 +43,15 @@ export const LoginForm = () => {
       <div className="w-full flex items-center bg-white/85 shadow-xl rounded-lg px-10">
         <form
           onSubmit={formik.handleSubmit}
-          className={`w-full flex flex-col justify-center items-center px-4 md:px-8  ${
-            !loading ? "" : " animate-pulse "
-          }`}
+          className={`w-full flex flex-col justify-center items-center px-4 md:px-8  ${!loading ? "" : " animate-pulse "
+            }`}
         >
           <div className="flex flex-col justify-center items-center my-4">
-            <div className="pb-8">
+            {/* <div className="pb-8">
               <img src={logo} alt="loyalty-logo" />
-            </div>
+            </div> */}
             <div className="py-2 mb-3">
-              <h1 className="text-2xl font-bold text-[#391446]">Inicio de sesión</h1>
+              <h1 className="text-2xl font-bold text-[#222222]">Inicio de sesión</h1>
             </div>
           </div>
           <InputStandard
@@ -79,7 +77,7 @@ export const LoginForm = () => {
           />
           <button
             type="submit"
-            className="w-64 p-3 m-2 text-md font-medium tracking-wide rounded-lg bg-[#391446] text-white hover:bg-[#521D65] transition ease-in-out duration-300 transform hover:scale-110 hover:shadow-lg"
+            className="w-64 p-3 m-2 text-md font-medium tracking-wide rounded-lg bg-[#ED7004] text-white hover:bg-[#222222] transition ease-in-out duration-300 transform hover:scale-110 hover:shadow-lg"
           >
             Iniciar sesión
           </button>
@@ -87,7 +85,7 @@ export const LoginForm = () => {
           <div className="flex justify-center items-center mt-6">
             <button
               type="button"
-              className="w-64 p-3 m-2 text-md rounded-lg text-[#391446] font-medium hover:text-[#521D65] transition ease-in-out duration-300 transform hover:scale-110 hover:shadow-lg"
+              className="w-64 p-3 m-2 text-md rounded-lg text-[#ED7004] font-medium hover:text-[#ED7004] transition ease-in-out duration-300 transform hover:scale-110 hover:shadow-lg"
               onClick={() => navigateTo("/recover")}
             >
               Recuperar contraseña

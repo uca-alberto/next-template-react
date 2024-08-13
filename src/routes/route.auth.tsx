@@ -9,12 +9,12 @@ const MemoSideBar = memo(SideBar);
 const MemoHeader = memo(Header);
 
 const PrivateRoute = () => {
-  const { user, loading } = useAuth();
+  const auth = useAuth();
   const { pushNotify } = useToast();
   const [open, setOpen] = useState(false);
 
-  if (!loading) {
-    if (!user) {
+  if (!auth?.loading) {
+    if (!auth?.user) {
       pushNotify("Sesión expirada", "error");
       return <Navigate to="/login" />;
     }

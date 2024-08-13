@@ -18,7 +18,7 @@ const menuItemStyles: MenuItemStyles = {
     color: "#391446",
   },
   SubMenuExpandIcon: {
-    color: "#391446",
+    color: "#ffffff",
     backgroundColor: "transparent",
   },
   label: ({ open }) => ({
@@ -28,14 +28,14 @@ const menuItemStyles: MenuItemStyles = {
     backgroundColor: "rgba(255,255,255,0.2)",
   },
   button: {
-    color: "#391446",
+    color: "#FFFFFF",
     backgroundColor: "transparent",
     fontSize: "16px",
     fontWeight: 500,
     fontStretch: "normal",
     [`&.active`]: {
-      backgroundColor: "#FB963D",
-      color: "#391446",
+      backgroundColor: "#ED7004",
+      color: "#ED7004",
     },
     [`&:hover`]: {
       backgroundColor: "rgba(255,255,255,0.2)",
@@ -78,13 +78,14 @@ export default function SideBar({ open }: { open: boolean }) {
         toggled={toggled}
         onBackdropClick={() => setToggled(false)}
         breakPoint="sm"
+        backgroundColor="#080808"
         width="300px"
-        className="h-full bg-gradient-to-br from-[#391446]/50 from-40% to-[#FB963D]/50 border-none"
+        className="h-full bg-black "
       >
         <MemoSideBarStatic
           collapsed={collapsed}
           setCollapsed={setCollapsed}
-          title="Menu"
+          title="Menú"
         />
         <Menu menuItemStyles={menuItemStyles}>
           {menu.map((item, index) => (

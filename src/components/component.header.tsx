@@ -42,13 +42,13 @@ export default function Header({
           <div className="grid grid-cols-1 md:grid-cols-2 justify-center">
             <div className="my-2 py-2">
               <div className="h-full lg:max-w-56 flex justify-center items-center bg-white/35 rounded-lg shadow-md hover:shadow-lg hover:shadow-[#391446]/20 px-4 text-center">
-                <p className="text-[#391446] text-md font-semibold ">{name}</p>
+                <p className="text-[#222222] text-md font-semibold ">{name}</p>
               </div>
             </div>
             <div className="my-2 py-2">
               <button
                 onClick={handleLogout}
-                className="lg:min-w-56 mx-4 py-2 px-4 rounded-md text-[#391446] hover:bg-[#391446]/80 hover:text-white hover:shadow-lg hover:shadow-[#391446]/20 transition duration-300 ease-in-out"
+                className="lg:min-w-56 mx-4 py-2 px-4 rounded-md text-[#222222] hover:bg-[#222222]/80 hover:text-white hover:shadow-lg hover:shadow-[#391446]/20 transition duration-300 ease-in-out"
               >
                 <span className=" text-md font-semibold text-center">Cerrar Sesión</span>
               </button>

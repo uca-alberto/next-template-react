@@ -21,7 +21,8 @@ export const SubMenuComponent = ({ item }: { item: IMenuItem }) => {
       <div className="w-full">
         <button
           onClick={handleOpen}
-          className=" h-32 w-60 flex justify-center items-center px-4 my-2 bg-white/25 shadow-lg rounded-lg text-[#7F5574] font-semibold hover:bg-[#7F5574]/5  transition-all duration-300 ease-in-out hovver:shadow-xl hover:scale-105 hover:shadow-[#7F5574]/50"
+          className=" h-32 w-60 flex justify-center items-center px-4 my-2 bg-white/75 shadow-lg rounded-lg text-[#222222] 
+          font-semibold hover:bg-[#222222]/5  transition-all duration-300 ease-in-out hovver:shadow-xl hover:scale-105 hover:shadow-[#7F5574]/50"
         >
           <Icon name={item.icon} size={24} />
           <span className="pl-4">{item.title}</span>

@@ -1,0 +1,10 @@
+export enum PROGRAM_TYPE {
+  BIRTHAY = "PRG_CUMPLEANIOS",
+  REFERRAL = "PRG_REFERIDOS",
+  UPGRADE = "PRG_UPGRADE",
+}
+
+export enum MENU_TYPE {
+  REFERRAL = 5,
+  SECURITY = 10,
+}

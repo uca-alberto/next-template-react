@@ -14,19 +14,28 @@ const InputStandard = ({
   type = "text",
   isViewError = true,
   onChange,
+  color = "#4f4f4f",
 }: InputStandardProps) => {
   const [showPassword, setShowPassword] = useState(false);
+  const style = {
+    color: color,
+  };
+  var inputColor = `text-[#391446] font-medium text-md `;
   return (
     <>
       <div className="w-full mt-1 mb-2">
         <div className="pr-1">
           {title && (
-            <label className="text-[#391446] font-medium text-md ">{title}</label>
+            <label style={style} className={inputColor}>
+              {title}
+            </label>
           )}
         </div>
         <div className="relative ">
           <input
-            type={type === "password" ? (showPassword ? "text" : "password") : type}
+            type={
+              type === "password" ? (showPassword ? "text" : "password") : type
+            }
             id={name}
             name={name}
             className="w-full px-4 py-2 mt-1 text-sm text-[#393e3f] bg-white/60 placeholder-gray-400 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-[#FB963D] focus:border-[#FB963D] disabled:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-60"
@@ -43,9 +52,9 @@ const InputStandard = ({
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? (
-                <RiContrast2Fill color={"#391446"} />
+                <RiContrast2Fill color={color} />
               ) : (
-                <RiContrast2Line color={"#391446"} />
+                <RiContrast2Line color={color} />
               )}
             </button>
           )}
@@ -53,7 +62,9 @@ const InputStandard = ({
         {isViewError && (
           <div className="min-h-7 max-h-9 flex justify-end items-center mt-1">
             {errorView && touched && (
-              <p className="text-red-400 text-sm font-mediun leading-5">{error}</p>
+              <p className="text-red-400 text-sm font-mediun leading-5">
+                {error}
+              </p>
             )}
           </div>
         )}

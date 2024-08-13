@@ -14,7 +14,7 @@ export const useAuth = (): AuthContextType => {
   return context;
 };
 
-const pathNoVerify = ["/login", "/recover", "/recover-pass", "/verify-account"];
+const pathNoVerify = ["/login", "/recover", "/recover-pass", "/verify-account",];
 
 export const AuthProvider = ({ children }: Props) => {
   const { pushNotify } = useToast();

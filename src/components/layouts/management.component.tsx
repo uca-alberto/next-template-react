@@ -7,9 +7,12 @@ import { TitleSection } from "./component.title-section";
 import { memo, useEffect } from "react";
 import { SectionBgWhite80 } from "./component.section-bg-80";
 import { DivJustifyItemsCenter } from "./component.divs";
-import { RiEraserLine } from "@remixicon/react";
+import { RiFilter3Line, RiDeleteBin6Fill } from "@remixicon/react";
 import { ManagementInput } from "./management-input.component";
-import { validateSchemaDate, getFormattedDates } from "../../utils/validate-schema.util";
+import {
+  validateSchemaDate,
+  getFormattedDates,
+} from "../../utils/validate-schema.util";
 
 const MemoTitleSection = memo(TitleSection);
 
@@ -20,12 +23,15 @@ const LayoutManagement = (props: IPropsLayouts) => {
     labelButton,
     handleSearch,
     search,
+    filter,
     onClick,
     isViewButton = true,
     isViewForm = true,
     isUseSearch = true,
     isUseDate = false,
     componentAdd,
+    clearFilter,
+    isViewFilter = true,
   } = props;
   const { dateNow, dateBefore } = getFormattedDates();
 
@@ -36,7 +42,9 @@ const LayoutManagement = (props: IPropsLayouts) => {
       finalDate: "",
     },
     validationSchema: Yup.object({
-      name: isUseSearch ? Yup.string().required("Campo requerido") : Yup.string(),
+      name: isUseSearch
+        ? Yup.string().required("Campo requerido")
+        : Yup.string(),
       initialDate: isUseDate
         ? Yup.string().test({
             name: "initialDate",
@@ -119,6 +127,14 @@ const LayoutManagement = (props: IPropsLayouts) => {
       formik.setFieldValue("name", "");
       search("");
     }
+    if (clearFilter) {
+      clearFilter(true);
+    }
+  };
+  const handleFilter = () => {
+    if (filter) {
+      filter(true);
+    }
   };
 
   return (
@@ -135,22 +151,38 @@ const LayoutManagement = (props: IPropsLayouts) => {
           <SectionBgWhite80>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ">
               <div className="col-span-3 pt-3">
-                <ManagementInput formik={formik} useInput={{ isUseSearch, isUseDate }} />
+                <ManagementInput
+                  formik={formik}
+                  useInput={{ isUseSearch, isUseDate }}
+                />
                 {componentAdd && componentAdd}
               </div>
               <div className="mt-11">
                 <div className="grid grid-cols-1 md:grid-cols-3">
                   <div className="col-span-2">
                     <DivJustifyItemsCenter>
-                      <ButtonUi type="submit">
+                      <ButtonUi type="submit" color="#222222">
                         <span className="text-md ">Buscar</span>
                       </ButtonUi>
                     </DivJustifyItemsCenter>
                   </div>
                   <DivJustifyItemsCenter>
-                    <ButtonOutlineIconUI type="button" onClick={handleCleanSearch}>
-                      <RiEraserLine />
+                    <ButtonOutlineIconUI
+                      type="button"
+                      onClick={handleCleanSearch}
+                      color="#9e9e9e"
+                    >
+                      <RiDeleteBin6Fill color="white" />
                     </ButtonOutlineIconUI>
+                    {isViewFilter && (
+                      <ButtonOutlineIconUI
+                        type="button"
+                        onClick={handleFilter}
+                        color="#222222"
+                      >
+                        <RiFilter3Line color="white" />
+                      </ButtonOutlineIconUI>
+                    )}
                   </DivJustifyItemsCenter>
                 </div>
               </div>

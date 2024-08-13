@@ -1,13 +1,10 @@
 import {
      RiGiftLine,
      RiDashboardLine,
-     RiMapLine,
-     RiCheckboxMultipleFill,
-     RiContactsLine,
-     RiCheckboxMultipleBlankFill,
-     RiCheckboxMultipleBlankLine,
-     RiClipboardLine,
-
+     RiStarLine,
+     RiSurveyLine,
+     RiUserLine,
+     RiMedalLine
 } from "@remixicon/react";
 
 interface IconProps {
@@ -24,20 +21,16 @@ const Icon = ({
      switch (name) {
           case "RiDashboardLine":
                return <RiDashboardLine color={color} size={size} />;
-          case "RiMapLine":
-               return <RiMapLine color={color} size={size} />;
-          case "RiContactsFill":
-               return <RiContactsLine color={color} size={size} />;
-          case "RiCheckboxMultipleFill":
-               return <RiCheckboxMultipleFill color={color} size={size} />;
-          case "RiContactsLine":
-               return <RiContactsLine color={color} size={size} />;
-          case "RiCheckboxMultipleBlankFill":
-               return <RiCheckboxMultipleBlankFill color={color} size={size} />;
-          case "RiCheckboxMultipleBlankLine":
-               return <RiCheckboxMultipleBlankLine color={color} size={size} />;
-          case "RiClipboardLine":
-               return <RiClipboardLine color={color} size={size} />;
+          case "RiStarLine":
+               return <RiStarLine color={color} size={size} />;
+          case "RiGiftLine":
+               return <RiGiftLine color={color} size={size} />;
+          case "RiSurveyLine":
+               return <RiSurveyLine color={color} size={size} />;
+          case "RiUserLine":
+               return <RiUserLine color={color} size={size} />;
+          case "RiMedalLine":
+               return <RiMedalLine color={color} size={size} />;
           default:
                return <RiGiftLine color={color} size={size} />;
      }

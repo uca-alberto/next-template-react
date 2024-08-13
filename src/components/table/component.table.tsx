@@ -27,6 +27,7 @@ const TableComponent = ({
   voidDelete,
   voidEdit,
   voidView,
+  voidEditItem,
 }: IPropsTableComponent) => {
   const [columnsState, setColumnsState] = useState(columns ?? []);
   const [array, setArray] = useState<any[]>([]);
@@ -83,6 +84,7 @@ const TableComponent = ({
               voidEdit={voidEdit}
               voidDelete={voidDelete}
               voidView={voidView}
+              voidEditItem={voidEditItem}
             />
           </thead>
           <tbody className="w-full">
@@ -97,6 +99,7 @@ const TableComponent = ({
                 voidEdit={voidEdit}
                 voidDelete={voidDelete}
                 voidView={voidView}
+                voidEditItem={voidEditItem}
               />
             ))}
           </tbody>

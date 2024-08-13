@@ -25,7 +25,7 @@ export const usePermission = () => {
 };
 
 export const PermissionsProvider = ({ children }: Props) => {
-  const { user, permissions } = useAuth();
+  const auth = useAuth();
   const { pushNotify } = useToast();
   const navigation = useNavigate();
   const { pathname } = useLocation();
@@ -34,58 +34,38 @@ export const PermissionsProvider = ({ children }: Props) => {
   );
 
   useEffect(() => {
-    if (permissions.length > 0 && access.length === 0) {
+    if (auth?.permissions.length > 0 && access.length === 0) {
       getOrderMenu();
       return;
     }
-  }, [permissions]);
+  }, [auth?.permissions]);
 
   useEffect(() => {
-    if (user && permissions.length > 0) {
+    if (auth?.user && auth?.permissions.length > 0) {
       hasAccess();
     }
   }, [pathname]);
 
   const hasPermission = (action: typeAction): boolean => {
     try {
-      const splitPath = pathname?.split("/") ?? [];
-      const mainSegment = splitPath[1];
-
-      function checkPermission(module: IModulePermission): boolean {
-        if (module.path === `/${mainSegment}`) {
-          for (const act of module.action) {
-            if (act.action === "WRITE" && action === "WRITE") {
-              return true;
-            }
-            if (act.action === "DELETE" && action === "DELETE") {
-              return true;
-            }
-            if (act.action === "CREATE" && action === "CREATE") {
-              return true;
-            }
-          }
-        }
-        return false;
-      }
-
-      for (const module of permissions) {
-        const subModuleArray = module?.subModule ?? [];
-        for (const subModule of subModuleArray) {
-          const hasPermission = checkPermission(subModule);
-          if (hasPermission) {
-            return true;
-          }
-        }
-      }
-      return false;
+      return hasWriteOrCreatePermission(
+        auth?.permissions,
+        pathname,
+        action
+      )
     } catch (error) {
       return false;
     }
   };
 
   const hasAccess = () => {
-    if (permissions) {
-      const hasPermission = hasWriteOrCreatePermission(permissions, pathname);
+
+    if (auth?.permissions) {
+      const hasPermission = hasWriteOrCreatePermission(
+        auth?.permissions,
+        pathname
+      );
+
       if (!hasPermission) {
         pushNotify("No tienes permisos para acceder a esta ruta", "error");
         return navigation("/");
@@ -99,11 +79,15 @@ export const PermissionsProvider = ({ children }: Props) => {
       orderMenu(menuConfig).then((res: any) => {
         const childrenPermissions: any = [];
 
-        permissions.forEach((item: any) => {
+        auth?.permissions.forEach((item: any) => {
           item.subModule.forEach((sub: any) => {
             sub.title = item?.name ?? sub.title;
-            const hasRead = sub.action.some((action: any) => action.action === "READ");
-            childrenPermissions.push({ ...sub, hasRead });
+            const hasRead = sub.action.some(
+              (action: any) => action.action === "READ"
+            );
+            if (!sub.hiddenDashboard) {
+              childrenPermissions.push({ ...sub, hasRead });
+            }
           });
         });
 
@@ -113,7 +97,8 @@ export const PermissionsProvider = ({ children }: Props) => {
         res.forEach((item: any) => {
           const hasModule = item.children.filter((child: any) =>
             childrenPermissions.some(
-              (permission: any) => permission.path === child.path && permission.hasRead
+              (permission: any) =>
+                permission.path === child.path && permission.hasRead
             )
           );
           if (hasModule.length > 0) {

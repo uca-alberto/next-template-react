@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 
 function App() {
   const classMain =
-    "flex flex-col w-screen min-h-screen max-h-max bg-gradient-to-br from-[#391446] from-10% to-[#FB963D]";
+    "flex flex-col w-screen min-h-screen max-h-max bg-[#E0E0E0]";
   return (
     <>
       <BrowserRouter>

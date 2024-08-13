@@ -23,12 +23,23 @@ const ButtonIcon = (props: ButtonIconProps) => {
 };
 
 export const ButtonOutlineIcon = (props: ButtonIconProps) => {
-  const { children, onClick, disabled, type = "button" } = props;
+  const {
+    children,
+    onClick,
+    disabled,
+    type = "button",
+    color = "#DC8436",
+  } = props;
+  const buttonStyle = {
+    backgroundColor: color,
+  };
+  const colorButton = `py-1 px-3 mx-2 border-4 border-[${color}] rounded-lg text-md text-[${color}] font-medium transition duration-300 hover:bg-[${color}] hover:border-[${color}] hover:text-white focus:ring-4 focus:outline-none focus:ring-[${color}]/50 disabled:bg-[${color}] disabled:border-[${color}] disabled:text-white`;
 
   return (
     <button
       type={type}
-      className="py-1 px-3 mx-2 border-4 border-[#DC8436] rounded-lg text-md text-[#DC8436] font-medium transition duration-300 hover:bg-[#391446] hover:border-[#391446] hover:text-white focus:ring-4 focus:outline-none focus:ring-[#391446]/50 disabled:bg-[#391446] disabled:border-[#391446] disabled:text-white"
+      style={buttonStyle}
+      className={colorButton}
       onClick={onClick}
       disabled={disabled}
     >

@@ -23,6 +23,7 @@ export default function TableManagement({
   voidEdit,
   voidView,
   selectItem,
+  voidEditItem,
 }: IPropsTableManagement) {
   const [loading, setLoading] = useState<boolean>(false);
   const [array, setArray] = useState<any[]>([]);
@@ -82,6 +83,7 @@ export default function TableManagement({
           heightTable={heightTable}
           selectItem={selectItem}
           hideFooter={hideFooter}
+          voidEditItem={voidEditItem}
         />
       ) : (
         <div className="h-[500px] bg-white/80 rounded-lg ">

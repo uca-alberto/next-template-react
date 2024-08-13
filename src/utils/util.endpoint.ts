@@ -114,6 +114,74 @@ const APIS: any = {
     reserve_top: `${BASE_URL}/auditory/consolidate-reserve/top-reserves`,
     reserve_status: `${BASE_URL}/order/status-reservation`,
   },
+  BENEFIT: {
+    //list: `${BASE_URL}/benefit`,
+    create: `http://localhost:7000/benefit`,
+    update: `http://localhost:7000/benefit`,
+    //delete: `${BASE_URL}/benefit`,
+    //getById: `${BASE_URL}/benefit`,
+    //status: `${BASE_URL}/benefit/status`,
+    list: `http://localhost:7000/benefit`,
+    getById: `http://localhost:7000/benefit`,
+  },
+  CUSTOMER: {
+    item: `http://localhost:7000/customer`,
+  },
+  CATEGORY: {
+    list: `http://localhost:7000/category`,
+    listFilter: `http://localhost:7000/category/paginated`,
+    getById: `http://localhost:7000/category`,
+    update: `http://localhost:7000/category`,
+    create: `http://localhost:7000/category`,
+    status: `http://localhost:7000/category/status`,
+  },
+  UPLOAD: {
+    upload_file: `http://localhost:7000/upload`,
+  },
+  BENEFIT_REQUEST: {
+    list: `http://localhost:7000/benefit-request`,
+    getById: `http://localhost:7000/benefit-request`,
+    update: `http://localhost:7000/benefit-request`,
+  },
+  BENEFIT_REQUEST_OBSERVATION: {
+    create: `http://localhost:7000/observation`,
+    getById: `http://localhost:7000/observation/filter`,
+  },
+  REFERRAL: {
+    list: `http://localhost:7000/referral`,
+    item: `http://localhost:7000/referral/find`,
+  },
+  REFERRAL_FORM: {
+    item: `http://localhost:7000/referral-form`,
+    status: `http://localhost:7000/referral-form/status`,
+  },
+  REFERRAL_OBSERVATION: {
+    item: `http://localhost:7000/referral-observation`,
+  },
+  CATALOG: {
+    item: `http://localhost:7000/catalog`,
+    list: `http://localhost:7000/catalog`,
+    getById: `http://localhost:7000/catalog`,
+    create: `http://localhost:7000/catalog`,
+    update: `http://localhost:7000/catalog`,
+    status: `http://localhost:7000/catalog/status`,
+    children: `http://localhost:7000/catalog/children`,
+  },
+  PROGRAMS_RULES: {
+    update: `http://localhost:7000/program-rule`,
+    getById: `http://localhost:7000/program-rule`,
+    list: `http://localhost:7000/program-rule`,
+    getByType: `http://localhost:7000/program-rule/by-program-type-code`,
+    status: `http://localhost:7000/program-rule/status`,
+  },
+  PROGRAMS_RULES_CATEGORY: {
+    update: `http://localhost:7000/program-rule`,
+    getByIdProgramRule: `http://localhost:7000/program-rule-category/by-program-rule`,
+  },
+  POINS_PROGRAMS_RULES: {
+    save: `http://localhost:7000/point-program-category`,
+    getByIdProgramRule: `http://localhost:7000/point-program-category/by-program-rule`,
+  },
 };
 
 const urlReport = ({

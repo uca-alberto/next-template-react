@@ -1,4 +1,4 @@
-import { IPropsChildrenLayouts } from "../../utils/util.interface";
+import { IPropsChildrenLayouts, IpropsBgLayouts } from "../../utils/util.interface";
 
 const SectionBgWhite80 = ({ children }: IPropsChildrenLayouts) => {
   return (
@@ -24,4 +24,20 @@ const SectionBgOrage80 = ({ children }: IPropsChildrenLayouts) => {
   );
 };
 
-export { SectionBgWhite80, SectionBgPurple80, SectionBgOrage80 };
+const SectionBgBlack80 = ({ children }: IPropsChildrenLayouts) => {
+  return (
+    <div className="grid grid-cols-1 bg-[#000000]/80 py-3 px-6 my-4 rounded-lg">
+      {children}
+    </div>
+  );
+};
+
+const SectionBg = ({ children, color }: IpropsBgLayouts) => {
+  return (
+    <div className={`grid grid-cols-1 bg-[#${color}]/80 py-3 px-6 my-4 rounded-lg`}>
+      {children}
+    </div>
+  )
+}
+
+export { SectionBgWhite80, SectionBgPurple80, SectionBgOrage80, SectionBgBlack80, SectionBg };
